@@ -50,39 +50,47 @@ export default function HomePage() {
                 About
               </a>
               <Button href="#takeaway" variant="secondary" className="px-4 py-2 text-sm">
-                Get the weekly takeaway
+                Get this week's practical step
               </Button>
             </nav>
-            <a href="#takeaway" className="text-xs font-medium text-tp-teal md:hidden">
-              Weekly
-            </a>
+            <nav className="flex items-center gap-3 text-xs text-tp-muted md:hidden" aria-label="Mobile">
+              <a href="#podcast" className="font-medium hover:text-tp-ink">
+                Podcast
+              </a>
+              <a href="#about" className="font-medium hover:text-tp-ink">
+                About
+              </a>
+              <a href="#takeaway" className="font-medium text-tp-teal hover:text-tp-ink">
+                Practical step
+              </a>
+            </nav>
             <ThemeToggle />
           </div>
         </Container>
       </header>
 
       <main id="top" className="pb-20">
-        <section className="pt-16 sm:pt-20">
+        <section className="pt-16 pb-10 sm:pt-20 sm:pb-12">
           <Container>
             <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-              <div>
+              <div className="hero-fade-in">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-tp-muted">
                   TechParentsy Podcast
                 </p>
-                <h1 className="text-balance text-4xl font-semibold tracking-tight text-tp-ink sm:text-5xl lg:text-6xl">
+                <h1 className="tp-h1">
                   Empowering parents with technology.
                 </h1>
-                <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-tp-muted">
+                <p className="tp-body mt-6 text-pretty">
                   Transparent tools and guardrails for families navigating the digital world.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button href="#podcast">Listen to the Podcast</Button>
                   <Button href="#takeaway" variant="secondary">
-                    Get the weekly takeaway
+                    Get this week's practical step
                   </Button>
                 </div>
               </div>
-              <GlassCard className="relative overflow-hidden p-10 sm:p-12">
+              <GlassCard className="hero-fade-in-delay relative overflow-hidden p-10 sm:p-12">
                 <div className="pointer-events-none absolute -left-24 -top-16 h-56 w-56 rounded-full bg-teal-300/30 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-20 -right-16 h-56 w-56 rounded-full bg-slate-300/50 blur-3xl" />
                 <div className="relative flex min-h-64 items-center justify-center rounded-[1.1rem] border border-white/70 bg-white/45 p-8 dark:border-white/10 dark:bg-slate-900/45 sm:min-h-[22rem]">
@@ -94,14 +102,14 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="pt-24">
+        <section className="pt-28 pb-12">
           <Container>
             <GlassCard className="space-y-6">
               <SectionHeading title="Businesses get enterprise controls. Parents get afterthought tools." />
-              <p className="max-w-4xl text-lg leading-relaxed text-tp-muted">
+              <p className="tp-body">
                 Platforms ship powerful management tools to companies.
               </p>
-              <p className="max-w-4xl text-lg leading-relaxed text-tp-muted">
+              <p className="tp-body">
                 Parents are left with simplified controls that can feel buggy, inconsistent, and hard
                 to apply in real life.
               </p>
@@ -112,16 +120,16 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section id="about" className="pt-24">
+        <section id="about" className="pt-28 pb-12">
           <Container>
             <GlassCard>
               <SectionHeading title="Hi, I'm Jake." className="mb-4" />
-              <div className="space-y-4 text-lg leading-relaxed text-tp-muted">
-                <p>
+              <div className="space-y-4">
+                <p className="tp-body">
                   I am a dad of three and have spent nearly two decades in IT and cybersecurity,
                   helping teams navigate risk without panic.
                 </p>
-                <p>
+                <p className="tp-body">
                   TechParentsy brings that same enterprise-grade clarity into family life, so parents
                   can make confident, practical decisions at home.
                 </p>
@@ -130,21 +138,21 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="pt-24">
+        <section className="pt-28 pb-12">
           <Container>
             <SectionHeading eyebrow="Framework" title="A layered approach." className="mb-10" />
             <div className="grid gap-4 sm:grid-cols-2">
               {layerCards.map((layer) => (
                 <GlassCard key={layer.title} className="h-full">
-                  <h3 className="text-xl font-semibold text-tp-ink">{layer.title}</h3>
-                  <p className="mt-3 leading-relaxed text-tp-muted">{layer.description}</p>
+                  <h3 className="tp-h3">{layer.title}</h3>
+                  <p className="tp-small mt-3 max-w-prose">{layer.description}</p>
                 </GlassCard>
               ))}
             </div>
           </Container>
         </section>
 
-        <section id="podcast" className="pt-24">
+        <section id="podcast" className="pt-28 pb-12">
           <Container>
             <SectionHeading eyebrow="Podcast" title="Start here" className="mb-10" />
             <div className="grid gap-4 md:grid-cols-2">
@@ -160,7 +168,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="pt-24">
+        <section className="pt-28 pb-12">
           <Container>
             <GlassCard>
               <SectionHeading title="If you do nothing else this week...">
@@ -173,10 +181,10 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section id="takeaway" className="pt-24">
+        <section id="takeaway" className="pt-28 pb-12">
           <Container>
             <GlassCard>
-              <SectionHeading title="Get the weekly takeaway" className="mb-6">
+              <SectionHeading title="Get this week's practical step" className="mb-6">
                 <p>One practical step each week. No spam. Unsubscribe anytime.</p>
               </SectionHeading>
               <TakeawayForm />

@@ -11,15 +11,16 @@ type ButtonProps = {
 };
 
 const base =
-  'inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-colors duration-200';
+  'inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:translate-y-0';
 
 const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
-  primary: 'bg-tp-teal text-white hover:bg-teal-700',
+  primary: 'bg-tp-teal text-white shadow-sm hover:bg-teal-700 hover:shadow-md',
   secondary:
-    'border border-tp-line bg-white/80 text-tp-slate hover:bg-white dark:bg-slate-900/70 dark:hover:bg-slate-900/95',
+    'border border-tp-line bg-white/80 text-tp-slate shadow-sm hover:bg-white hover:shadow-md dark:bg-slate-900/70 dark:hover:bg-slate-900/95',
   ghost:
     'border border-transparent bg-white/35 text-tp-ink hover:bg-white/65 dark:bg-slate-900/40 dark:hover:bg-slate-900/75',
-  disabled: 'cursor-not-allowed border border-tp-line bg-slate-100 text-slate-400 dark:bg-slate-900/55 dark:text-slate-500',
+  disabled:
+    'cursor-not-allowed border border-tp-line bg-slate-200 text-slate-600 opacity-85 dark:bg-slate-800 dark:text-slate-300',
 };
 
 export function Button({

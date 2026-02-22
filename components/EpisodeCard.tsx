@@ -14,8 +14,8 @@ export function EpisodeCard({ title, summary }: EpisodeCardProps) {
       <p className="mb-3 inline-flex rounded-full border border-tp-line bg-white/75 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-tp-muted dark:bg-slate-900/70">
         Coming soon
       </p>
-      <h3 className="text-xl font-semibold text-tp-ink">{title}</h3>
-      <p className="mt-3 leading-relaxed text-tp-muted">{summary}</p>
+      <h3 className="tp-h3">{title}</h3>
+      <p className="tp-body mt-3">{summary}</p>
       <div className="mt-6 flex flex-wrap gap-2">
         {platforms.map((platform) => (
           <Button
@@ -29,6 +29,7 @@ export function EpisodeCard({ title, summary }: EpisodeCardProps) {
           </Button>
         ))}
       </div>
+      <p className="tp-small mt-3 md:hidden">Coming soon</p>
     </GlassCard>
   );
 }

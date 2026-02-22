@@ -1,16 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 const siteUrl = 'https://techparentsy.com';
-const siteTitle = 'TechParentsy | Empowering parents with technology';
+const siteTitle = 'TechParentsy';
 const siteDescription =
-  'Transparent tools and guardrails for families navigating the digital world.';
+  'Empowering parents with technology. Transparent tools and guardrails for families.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,10 +28,10 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: '/brand/mark_logo.png',
+        url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'TechParentsy',
+        alt: 'TechParentsy podcast',
       },
     ],
   },
@@ -45,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteTitle,
     description: siteDescription,
-    images: ['/brand/mark_logo.png'],
+    images: ['/og.png'],
   },
   robots: {
     index: true,
@@ -75,7 +69,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-tp-bg text-tp-ink antialiased`}>
+      <body className="bg-tp-bg text-tp-ink antialiased">
         {children}
       </body>
     </html>

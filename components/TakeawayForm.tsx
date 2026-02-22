@@ -25,27 +25,14 @@ export function TakeawayForm() {
     try {
       setSubmitting(true);
       setState({ message: '', tone: null });
-
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email.trim() }),
+      await new Promise((resolve) => setTimeout(resolve, 360));
+      setState({
+        message: "You're on the list. (Demo - email delivery coming soon.)",
+        tone: 'success',
       });
-
-      const payload = (await response.json()) as { error?: string; message?: string };
-
-      if (!response.ok) {
-        setState({
-          message: payload.error || 'Could not subscribe right now. Please try again.',
-          tone: 'error',
-        });
-        return;
-      }
-
-      setState({ message: payload.message || "You're on the list.", tone: 'success' });
       setEmail('');
+
+      // TODO: Integrate ConvertKit or Mailchimp API endpoint.
     } catch (_error) {
       setState({ message: 'Network error. Please try again.', tone: 'error' });
     } finally {
@@ -76,18 +63,29 @@ export function TakeawayForm() {
           type="submit"
           disabled={submitting}
           aria-busy={submitting}
-          className="rounded-xl bg-tp-teal px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-70"
+          className="rounded-xl bg-tp-teal px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {submitting ? 'Joining...' : 'Join'}
         </button>
       </div>
-      <p id="takeaway-message" role="status" className="min-h-6 text-sm">
-        {state.message ? (
-          <span className={state.tone === 'error' ? 'text-red-600' : 'text-emerald-700'}>{state.message}</span>
-        ) : (
-          <span className="text-tp-muted">One practical step each week. No spam. Unsubscribe anytime.</span>
-        )}
-      </p>
+      {state.tone === 'success' ? (
+        <div
+          id="takeaway-message"
+          role="status"
+          className="flex items-start gap-2 rounded-xl border border-emerald-300/80 bg-emerald-50/80 px-3 py-2 text-sm text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
+        >
+          <span aria-hidden="true">✓</span>
+          <span>{state.message}</span>
+        </div>
+      ) : (
+        <p id="takeaway-message" role="status" className="min-h-6 text-sm">
+          {state.message ? (
+            <span className="text-red-600 dark:text-red-400">{state.message}</span>
+          ) : (
+            <span className="text-tp-muted">Enter your email to get this week's practical step.</span>
+          )}
+        </p>
+      )}
     </form>
   );
 }

@@ -5,9 +5,9 @@
 :root {
   --tp-bg: 200 32% 98%;
   --tp-ink: 212 32% 16%;
-  --tp-muted: 213 14% 39%;
+  --tp-muted: 214 14% 32%;
   --tp-teal: 184 58% 35%;
-  --tp-slate: 212 20% 29%;
+  --tp-slate: 212 22% 22%;
   --tp-line: 210 20% 82%;
 }
 
@@ -22,6 +22,15 @@
 
 body {
   min-height: 100vh;
+  font-family:
+    'Inter',
+    'SF Pro Text',
+    'Segoe UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   background-image:
     radial-gradient(1200px 620px at 8% -12%, rgba(20, 184, 166, 0.12), transparent 56%),
     radial-gradient(980px 540px at 96% 6%, rgba(71, 85, 105, 0.1), transparent 54%),
@@ -42,5 +51,46 @@ body {
 a,
 button,
 input {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tp-teal focus-visible:ring-offset-2;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tp-teal focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950;
+}
+
+@layer components {
+  .tp-h1 {
+    @apply text-balance text-4xl font-semibold tracking-tight text-tp-ink sm:text-5xl lg:text-6xl;
+  }
+
+  .tp-h2 {
+    @apply text-balance text-3xl font-semibold tracking-tight text-tp-ink sm:text-4xl;
+  }
+
+  .tp-h3 {
+    @apply text-xl font-semibold text-tp-ink;
+  }
+
+  .tp-body {
+    @apply max-w-prose text-base leading-relaxed text-tp-muted sm:text-lg;
+  }
+
+  .tp-small {
+    @apply text-sm leading-relaxed text-tp-muted;
+  }
+
+  .hero-fade-in {
+    animation: heroFadeIn 520ms ease-out both;
+  }
+
+  .hero-fade-in-delay {
+    animation: heroFadeIn 620ms ease-out 80ms both;
+  }
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
