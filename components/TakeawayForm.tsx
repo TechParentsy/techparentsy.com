@@ -11,9 +11,10 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function TakeawayForm() {
   const [email, setEmail] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const [state, setState] = useState<FormState>({ message: '', tone: null });
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!emailPattern.test(email.trim())) {
@@ -21,10 +22,35 @@ export function TakeawayForm() {
       return;
     }
 
-    setState({ message: 'You\'re on the list (demo).', tone: 'success' });
-    setEmail('');
+    try {
+      setSubmitting(true);
+      setState({ message: '', tone: null });
 
-    // TODO: Connect to ConvertKit or Mailchimp API endpoint.
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const payload = (await response.json()) as { error?: string; message?: string };
+
+      if (!response.ok) {
+        setState({
+          message: payload.error || 'Could not subscribe right now. Please try again.',
+          tone: 'error',
+        });
+        return;
+      }
+
+      setState({ message: payload.message || "You're on the list.", tone: 'success' });
+      setEmail('');
+    } catch (_error) {
+      setState({ message: 'Network error. Please try again.', tone: 'error' });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -48,9 +74,11 @@ export function TakeawayForm() {
         />
         <button
           type="submit"
-          className="rounded-xl bg-tp-teal px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-700"
+          disabled={submitting}
+          aria-busy={submitting}
+          className="rounded-xl bg-tp-teal px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          Join
+          {submitting ? 'Joining...' : 'Join'}
         </button>
       </div>
       <p id="takeaway-message" role="status" className="min-h-6 text-sm">
