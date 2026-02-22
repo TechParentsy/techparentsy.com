@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tp-bg: 200 32% 98%;
+  --tp-ink: 212 32% 16%;
+  --tp-muted: 213 14% 39%;
+  --tp-teal: 184 58% 35%;
+  --tp-slate: 212 20% 29%;
+  --tp-line: 210 20% 82%;
+}
+
+.dark {
+  --tp-bg: 212 34% 10%;
+  --tp-ink: 210 25% 92%;
+  --tp-muted: 215 15% 72%;
+  --tp-teal: 182 55% 46%;
+  --tp-slate: 212 22% 84%;
+  --tp-line: 214 24% 32%;
+}
+
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(1200px 620px at 8% -12%, rgba(20, 184, 166, 0.12), transparent 56%),
+    radial-gradient(980px 540px at 96% 6%, rgba(71, 85, 105, 0.1), transparent 54%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(243, 247, 251, 0.88));
+}
+
+.dark body {
+  background-image:
+    radial-gradient(1200px 700px at 10% -10%, rgba(45, 165, 155, 0.22), transparent 55%),
+    radial-gradient(900px 600px at 95% 8%, rgba(51, 65, 85, 0.2), transparent 52%),
+    linear-gradient(180deg, rgba(9, 16, 27, 0.95), rgba(14, 24, 38, 0.92));
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.24);
+}
+
+a,
+button,
+input {
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tp-teal focus-visible:ring-offset-2;
+}
