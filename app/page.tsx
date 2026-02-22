@@ -41,23 +41,22 @@ export default function HomePage() {
               TechParentsy
             </span>
           </a>
-          <nav className="hidden items-center gap-6 text-sm text-tp-muted md:flex" aria-label="Main">
-            <a href="#podcast" className="hover:text-tp-ink">
-              Podcast
-            </a>
-            <a href="#about" className="hover:text-tp-ink">
-              About
-            </a>
-            <ThemeToggle />
-            <Button href="#takeaway" variant="secondary" className="px-4 py-2 text-sm">
-              Get the weekly takeaway
-            </Button>
-          </nav>
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
-            <a href="#takeaway" className="text-xs font-medium text-tp-teal">
+          <div className="flex items-center gap-2 md:gap-6">
+            <nav className="hidden items-center gap-6 text-sm text-tp-muted md:flex" aria-label="Main">
+              <a href="#podcast" className="hover:text-tp-ink">
+                Podcast
+              </a>
+              <a href="#about" className="hover:text-tp-ink">
+                About
+              </a>
+              <Button href="#takeaway" variant="secondary" className="px-4 py-2 text-sm">
+                Get the weekly takeaway
+              </Button>
+            </nav>
+            <a href="#takeaway" className="text-xs font-medium text-tp-teal md:hidden">
               Weekly
             </a>
+            <ThemeToggle />
           </div>
         </Container>
       </header>
@@ -98,7 +97,7 @@ export default function HomePage() {
         <section className="pt-24">
           <Container>
             <GlassCard className="space-y-6">
-              <SectionHeading title="Parents get afterthought tools. Businesses get enterprise controls." />
+              <SectionHeading title="Businesses get enterprise controls. Parents get afterthought tools." />
               <p className="max-w-4xl text-lg leading-relaxed text-tp-muted">
                 Platforms ship powerful management tools to companies.
               </p>
@@ -109,6 +108,24 @@ export default function HomePage() {
               <p className="text-lg font-medium text-tp-slate">
                 TechParentsy exists to close that gap - with clarity and guardrails.
               </p>
+            </GlassCard>
+          </Container>
+        </section>
+
+        <section id="about" className="pt-24">
+          <Container>
+            <GlassCard>
+              <SectionHeading title="Hi, I'm Jake." className="mb-4" />
+              <div className="space-y-4 text-lg leading-relaxed text-tp-muted">
+                <p>
+                  I am a dad of three and have spent nearly two decades in IT and cybersecurity,
+                  helping teams navigate risk without panic.
+                </p>
+                <p>
+                  TechParentsy brings that same enterprise-grade clarity into family life, so parents
+                  can make confident, practical decisions at home.
+                </p>
+              </div>
             </GlassCard>
           </Container>
         </section>
@@ -156,24 +173,6 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section id="about" className="pt-24">
-          <Container>
-            <GlassCard>
-              <SectionHeading title="Hi, I'm Jake." className="mb-4" />
-              <div className="space-y-4 text-lg leading-relaxed text-tp-muted">
-                <p>
-                  I am a dad of three and have spent nearly two decades in IT and cybersecurity,
-                  helping teams navigate risk without panic.
-                </p>
-                <p>
-                  TechParentsy brings that same enterprise-grade clarity into family life, so parents
-                  can make confident, practical decisions at home.
-                </p>
-              </div>
-            </GlassCard>
-          </Container>
-        </section>
-
         <section id="takeaway" className="pt-24">
           <Container>
             <GlassCard>
@@ -197,7 +196,20 @@ export default function HomePage() {
               Contact
             </a>
           </div>
-          <p>Built with transparency and guardrails.</p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="hover:text-tp-ink">
+              Apple Podcasts
+            </a>
+            <a href="#" className="hover:text-tp-ink">
+              Spotify
+            </a>
+            <a href="#" className="hover:text-tp-ink">
+              YouTube
+            </a>
+            <a href="#" className="hover:text-tp-ink">
+              RSS
+            </a>
+          </div>
         </Container>
       </footer>
     </>
