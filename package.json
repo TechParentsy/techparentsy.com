@@ -6,7 +6,7 @@
     "node": ">=20.18 <23"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "NEXT_DISABLE_DEVTOOLS=1 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
