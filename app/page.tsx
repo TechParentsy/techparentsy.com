@@ -3,6 +3,7 @@ import { Button } from '@/components/Button';
 import { Container } from '@/components/Container';
 import { EpisodeCard } from '@/components/EpisodeCard';
 import { GlassCard } from '@/components/GlassCard';
+import { LayersSection } from '@/components/LayersSection';
 import { SectionHeading } from '@/components/SectionHeading';
 import { TakeawayForm } from '@/components/TakeawayForm';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -102,7 +103,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="pt-28 pb-12">
+        <section className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <GlassCard className="space-y-6">
               <SectionHeading title="Businesses get enterprise controls. Parents get afterthought tools." />
@@ -120,7 +121,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section id="about" className="pt-28 pb-12">
+        <section id="about" className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <GlassCard>
               <SectionHeading title="Hi, I'm Jake." className="mb-4" />
@@ -138,21 +139,9 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="pt-28 pb-12">
-          <Container>
-            <SectionHeading eyebrow="Framework" title="A layered approach." className="mb-10" />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {layerCards.map((layer) => (
-                <GlassCard key={layer.title} className="h-full">
-                  <h3 className="tp-h3">{layer.title}</h3>
-                  <p className="tp-small mt-3 max-w-prose">{layer.description}</p>
-                </GlassCard>
-              ))}
-            </div>
-          </Container>
-        </section>
+        <LayersSection cards={layerCards} />
 
-        <section id="podcast" className="pt-28 pb-12">
+        <section id="podcast" className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <SectionHeading eyebrow="Podcast" title="Start here" className="mb-10" />
             <div className="grid gap-4 md:grid-cols-2">
@@ -168,7 +157,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section className="pt-28 pb-12">
+        <section className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <GlassCard>
               <SectionHeading title="If you do nothing else this week...">
@@ -181,7 +170,7 @@ export default function HomePage() {
           </Container>
         </section>
 
-        <section id="takeaway" className="pt-28 pb-12">
+        <section id="takeaway" className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <GlassCard>
               <SectionHeading title="Get this week's practical step" className="mb-6">
