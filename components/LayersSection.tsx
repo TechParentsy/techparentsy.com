@@ -88,7 +88,7 @@ export function LayersSection({ cards }: LayersSectionProps) {
   }, [cards.length]);
 
   const cardStyles = useMemo(() => {
-    if (reducedMotion) {
+    if (reducedMotion || isMobile) {
       return cards.map(() => ({} as CSSProperties));
     }
 
@@ -133,7 +133,7 @@ export function LayersSection({ cards }: LayersSectionProps) {
           : 'transform 220ms linear, box-shadow 220ms linear',
       } as CSSProperties;
     });
-  }, [cards, offsets, progress, reducedMotion, usePin]);
+  }, [cards, isMobile, offsets, progress, reducedMotion, usePin]);
 
   return (
     <section ref={sectionRef} className="pt-20 pb-8 sm:pt-24 sm:pb-10" aria-label="Layered framework">
