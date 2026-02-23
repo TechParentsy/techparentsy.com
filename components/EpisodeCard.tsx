@@ -15,7 +15,7 @@ export function EpisodeCard({ title, summary }: EpisodeCardProps) {
         Coming soon
       </p>
       <h3 className="tp-h3">{title}</h3>
-      <p className="tp-body mt-3">{summary}</p>
+      <p className="tp-body mt-3 max-w-none">{summary}</p>
       <div className="mt-6 flex flex-wrap gap-2">
         {platforms.map((platform) => (
           <Button

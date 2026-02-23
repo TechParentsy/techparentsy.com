@@ -106,11 +106,14 @@ export default function HomePage() {
         <section className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <GlassCard className="space-y-6">
-              <SectionHeading title="Businesses get enterprise controls. Parents get afterthought tools." />
-              <p className="tp-body">
+              <SectionHeading
+                title="Businesses get enterprise-grade tools. Parents get limited controls."
+                className="max-w-none"
+              />
+              <p className="tp-body max-w-none">
                 Platforms ship powerful management tools to companies.
               </p>
-              <p className="tp-body">
+              <p className="tp-body max-w-none">
                 Parents are left with simplified controls that can feel buggy, inconsistent, and hard
                 to apply in real life.
               </p>
@@ -124,13 +127,13 @@ export default function HomePage() {
         <section id="about" className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
             <GlassCard>
-              <SectionHeading title="Hi, I'm Jake." className="mb-4" />
+              <SectionHeading title="Hi, I'm Jake." className="mb-4 max-w-none" />
               <div className="space-y-4">
-                <p className="tp-body">
+                <p className="tp-body max-w-none">
                   I am a dad of three and have spent nearly two decades in IT and cybersecurity,
                   helping teams navigate risk without panic.
                 </p>
-                <p className="tp-body">
+                <p className="tp-body max-w-none">
                   TechParentsy brings that same enterprise-grade clarity into family life, so parents
                   can make confident, practical decisions at home.
                 </p>
@@ -138,8 +141,6 @@ export default function HomePage() {
             </GlassCard>
           </Container>
         </section>
-
-        <LayersSection cards={layerCards} />
 
         <section id="podcast" className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
@@ -156,6 +157,8 @@ export default function HomePage() {
             </div>
           </Container>
         </section>
+
+        <LayersSection cards={layerCards} />
 
         <section className="pt-20 pb-8 sm:pt-24 sm:pb-10">
           <Container>
