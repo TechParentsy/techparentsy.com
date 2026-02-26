@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   icons: {
-    icon: '/brand/mark_logo.png',
-    shortcut: '/brand/mark_logo.png',
-    apple: '/brand/mark_logo.png',
+    icon: '/brand/favicon-32.png',
+    shortcut: '/brand/favicon-32.png',
+    apple: '/brand/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
