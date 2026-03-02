@@ -82,7 +82,7 @@ export default function HomePage() {
                   Empowering parents with technology.
                 </h1>
                 <p className="tp-body mt-6 text-pretty">
-                  Transparent tools and guardrails for families navigating the digital world.
+                  Transparent tools and guardrails for modern families.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button href="#podcast">Listen to the Podcast</Button>
